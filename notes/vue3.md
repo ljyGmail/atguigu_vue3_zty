@@ -11,7 +11,61 @@ npm create vue@latest
 
 ![img.png](images/03_vue_project_init.png)
 
+## 04 编写App组件
 
+- 应用入口: `index.html`
+```html
+<!DOCTYPE html>
+<html lang="">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" href="/favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vite App</title>
+</head>
+<body>
+<div id="app"></div>
+<script type="module" src="src/main.ts"></script>
+</body>
+</html>
+```
+
+- 脚本: `main.ts`
+```ts
+// 引入createApp用于创建应用
+import { createApp } from 'vue'
+// 引入App根组件
+import App from './App.vue'
+
+createApp(App).mount('#app')
+```
+
+- 组件: `App.vue`
+```vue
+<template>
+  <!-- html -->
+  <div class="app">
+    <h1>你好啊!</h1>
+  </div>
+</template>
+
+<script lang="ts">
+// JS或TS
+export default {
+  name: 'App', // 组件名
+}
+</script>
+
+<style>
+/* 样式 */
+.app {
+  background-color: #ddd;
+  box-shadow: 0 0 10px;
+  border-radius: 10px;
+  padding: 20px;
+}
+</style>
+```
 
 
 
