@@ -1,5 +1,9 @@
 # 极简Vue3
 
+## 01 Vue3开篇
+
+## 02 Vue3简介
+
 ## 03 创建Vue3工程
 
 ```bash
@@ -14,6 +18,7 @@ npm create vue@latest
 ## 04 编写App组件
 
 - 应用入口: `index.html`
+
 ```html
 <!DOCTYPE html>
 <html lang="">
@@ -31,6 +36,7 @@ npm create vue@latest
 ```
 
 - 脚本: `main.ts`
+
 ```ts
 // 引入createApp用于创建应用
 import { createApp } from 'vue'
@@ -41,7 +47,9 @@ createApp(App).mount('#app')
 ```
 
 - 组件: `App.vue`
+
 ```vue
+
 <template>
   <!-- html -->
   <div class="app">
@@ -50,22 +58,28 @@ createApp(App).mount('#app')
 </template>
 
 <script lang="ts">
-// JS或TS
-export default {
-  name: 'App', // 组件名
-}
+  // JS或TS
+  export default {
+    name: 'App', // 组件名
+  }
 </script>
 
 <style>
-/* 样式 */
-.app {
-  background-color: #ddd;
-  box-shadow: 0 0 10px;
-  border-radius: 10px;
-  padding: 20px;
-}
+  /* 样式 */
+  .app {
+    background-color: #ddd;
+    box-shadow: 0 0 10px;
+    border-radius: 10px;
+    padding: 20px;
+  }
 </style>
 ```
+
+## 05 一个简单的效果
+
+![img.png](images/04_a_simple_example.png)
+
+- 本案例使用`Vue2`的语法实现了一个简单的效果。
 
 
 
