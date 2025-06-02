@@ -81,5 +81,20 @@ createApp(App).mount('#app')
 
 - 本案例使用`Vue2`的语法实现了一个简单的效果。
 
+## 06 OptionsAPI与CompositionAPI
+
+- Options API的弊端
+- `Options`类型的`API`，数据、方法、计算属性等，是分散在`data`、`method`、`computed`中等，  
+  若想新增或者修改一个需求，就需要分别修改: `data`、`methods`、`computed`，不便于维护和复用。
+
+![img.png](images/06_a_options_api.png)
+
+- Composition API的优势
+- 可以用函数的方式，更加优雅地组织代码，让相关功能的代码更加有序地组织在一起。
+  ![img_1.png](images/06_b_composition_api.png)
+
+
+
+
 
 
