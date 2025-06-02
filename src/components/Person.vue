@@ -11,23 +11,33 @@
 <script lang="ts">
 export default {
   name: 'Person',
-  data() {
-    return {
-      name: '张三',
-      age: 18,
-      tel: '13888888888',
-    }
+  beforeCreate() {
+    console.log('beforeCreate')
   },
-  methods: {
-    showTel() {
-      alert(this.tel)
-    },
-    changeName() {
-      this.name = 'zhang-san'
-    },
-    changeAge() {
-      this.age += 1
-    },
+  setup() {
+    console.log('setup')
+    // console.log(this) // setup函数中的this是undefined，Vue3中已经弱化this了
+    // 数据，原来是写在data中的，此时的name、age、tel都不是响应式的数据
+    let name = '张三'
+    let age = 18
+    let tel = '13888888888'
+
+    // 方法
+    function changeName() {
+      name = 'zhang-san' // 注意: 这样修改name，页面是没有变化的
+      console.log(name) // name确实改了，但是name不是响应式的
+    }
+
+    function changeAge() {
+      age += 1 // 注意: 这样修改age页面是没有变化的
+      console.log(age) // age确实改了，但是age不是响应式的
+    }
+
+    function showTel() {
+      alert(tel)
+    }
+
+    return { name, age, changeName, changeAge, showTel }
   },
 }
 </script>

@@ -93,8 +93,8 @@ createApp(App).mount('#app')
 - 可以用函数的方式，更加优雅地组织代码，让相关功能的代码更加有序地组织在一起。
   ![img_1.png](images/06_b_composition_api.png)
 
+## 07 setup概述
 
-
-
+- 见代码
 
 
