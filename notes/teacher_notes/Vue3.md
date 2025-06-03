@@ -2,7 +2,9 @@
 
 - 2020年9月18日，`Vue.js`发布版`3.0`版本，代号：`One Piece`（n
 -
+
 经历了：[4800+次提交](https://github.com/vuejs/core/commits/main)、[40+个RFC](https://github.com/vuejs/rfcs/tree/master/active-rfcs)、[600+次PR](https://github.com/vuejs/vue-next/pulls?q=is%3Apr+is%3Amerged+-author%3Aapp%2Fdependabot-preview+)、[300+贡献者](https://github.com/vuejs/core/graphs/contributors)
+
 - 官方发版地址：[Release v3.0.0 One Piece · vuejs/core](https://github.com/vuejs/core/releases/tag/v3.0.0)
 - 截止2023年10月，最新的公开版本为：`3.3.4`
 
@@ -356,15 +358,14 @@ export default defineConfig({
 
 ## 3.3. 【ref 创建：基本类型的响应式数据】
 
-- **作用：**定义响应式变量。
-- **语法：**`let xxx = ref(初始值)`。
-- **返回值：**一个`RefImpl`的实例对象，简称`ref对象`或`ref`，`ref`对象的`value`**属性是响应式的**。
-- **注意点：**
-    - `JS`中操作数据需要：`xxx.value`，但模板中不需要`.value`，直接使用即可。
+- **作用**: 定义响应式变量。
+- **语法**: `let xxx = ref(初始值)`。
+- **返回值**: 一个`RefImpl`的实例对象，简称`ref对象`或`ref`，`ref`对象的`value`**属性是响应式的**。
+- **注意点**:
+    - `JS`中操作数据需要: `xxx.value`，但模板中不需要`.value`，直接使用即可。
     - 对于`let name = ref('张三')`来说，`name`不是响应式的，`name.value`是响应式的。
 
 ```vue
-
 <template>
   <div class="person">
     <h2>姓名：{{name}}</h2>
@@ -530,7 +531,7 @@ export default defineConfig({
 
 > 1. `ref`创建的变量必须使用`.value`（可以使用`volar`插件自动添加`.value`）。
      >
-     >    <img src="images/auto_complete_value.png" alt="自动补充value" style="zoom:50%;border-radius:20px" /> 
+     >    <img src="images/auto_complete_value.png" alt="自动补充value" style="zoom:50%;border-radius:20px" />
 >
 > 2. `reactive`重新分配一个新对象，会**失去**响应式（可以使用`Object.assign`去整体替换）。
 
@@ -647,7 +648,7 @@ export default defineConfig({
 
 我们在`Vue3`中使用`watch`的时候，通常会遇到以下几种情况：
 
-###  * 情况一
+###    * 情况一
 
 监视`ref`定义的【基本类型】数据：直接写数据名即可，监视的是其`value`值的改变。
 
@@ -681,7 +682,7 @@ export default defineConfig({
 </script>
 ```
 
-###  * 情况二
+###    * 情况二
 
 监视`ref`定义的【对象类型】数据：直接写数据名，监视的是对象的【地址值】，若想监视对象内部的数据，要手动开启深度监视。
 
@@ -738,7 +739,7 @@ export default defineConfig({
 </script>
 ```
 
-###  *  情况三
+###    *  情况三
 
 监视`reactive`定义的【对象类型】数据，且默认开启了深度监视。
 
@@ -800,7 +801,7 @@ export default defineConfig({
 </script>
 ```
 
-###  * 情况四
+###    * 情况四
 
 监视`ref`或`reactive`定义的【对象类型】数据中的**某个属性**，注意点如下：
 
@@ -871,7 +872,7 @@ export default defineConfig({
 </script>
 ```
 
-###  * 情况五
+###    * 情况五
 
 监视上述的多个数据
 
@@ -2298,7 +2299,7 @@ function sendToy() {
 2. 原理如下：
 
    | 属性      | 说明                                                     |
-      | --------- | -------------------------------------------------------- |
+            | --------- | -------------------------------------------------------- |
    | `$refs`   | 值为对象，包含所有被`ref`属性标识的`DOM`元素或组件实例。 |
    | `$parent` | 值为对象，当前组件的父组件实例对象。                     |
 
@@ -2488,7 +2489,7 @@ function sendToy() {
 
 > 通过使用 [`shallowRef()`](https://cn.vuejs.org/api/reactivity-advanced.html#shallowref) 和 [
 `shallowReactive()`](https://cn.vuejs.org/api/reactivity-advanced.html#shallowreactive) 来绕开深度响应。浅层式 `API`
-创建的状态只在其顶层是响应式的，对所有深层的对象不会做任何处理，避免了对每一个内部属性做响应式所带来的性能成本，这使得属性的访问变得更快，可提升性能。
+> 创建的状态只在其顶层是响应式的，对所有深层的对象不会做任何处理，避免了对每一个内部属性做响应式所带来的性能成本，这使得属性的访问变得更快，可提升性能。
 
 ## 7.2.【readonly 与 shallowReadonly】
 
