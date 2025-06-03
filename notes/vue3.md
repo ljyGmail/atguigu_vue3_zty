@@ -97,4 +97,16 @@ createApp(App).mount('#app')
 
 - 见代码
 
+## 08 setup的返回值
+
+- 见代码
+
+## 09 setup与OptionsAPI
+
+- Vue2中的`OptionsAPI`可以与Vue3中的setup函数共存。
+- `OptionsAPI`中可以读出setup()中的数据，但是反之不可以。
+- 建议不要混合写。
+
+
+
 
