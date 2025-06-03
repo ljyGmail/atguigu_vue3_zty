@@ -1,41 +1,55 @@
 <template>
   <div class="person">
-    <h2>姓名: {{ name }}</h2>
-    <h2>年龄: {{ age }}</h2>
-    <h2>地址: {{ address }}</h2>
-    <button @click="changeName">修改名字</button>
-    <button @click="changeAge">修改年龄</button>
-    <button @click="showTel">查看联系方式</button>
+    <h2>汽车信息: 一辆{{ car.brand }}车，价值{{ car.price }}万</h2>
+    <button @click="changePrice">修改汽车的价格</button>
+    <br />
+    <h2>游戏列表:</h2>
+    <ul>
+      <li v-for="s in songs" :key="s.id">{{ s.name }}</li>
+    </ul>
+    <button @click="changeFirstSong">修改第一个歌曲的名字</button>
+    <hr />
+    <h2>测试: {{ obj.a.b.c.d }}</h2>
+    <button @click="changeObj">测试</button>
   </div>
 </template>
 
 <script lang="ts" setup name="Person">
-import { ref } from 'vue'
+import { reactive } from 'vue'
+// 数据
+let car = reactive({ brand: '奔驰', price: 100 })
 
-// 数据，原来是写在data中的，此时的name、age、tel都不是响应式的数据
-let name = ref('张三')
-let age = ref(18)
-let tel = '13888888888'
-let address = '北京昌平区宏福苑·宏福科技园'
+console.log(car)
+console.log(Proxy)
 
-console.log(1, name)
-console.log(2, age)
-console.log(3, tel)
-console.log(4, address)
+let songs = reactive([
+  { id: 'beyond', name: '昔日舞曲' },
+  { id: '周华健', name: '你现在还好吗' },
+  { id: '周杰伦', name: '发如雪' },
+])
+
+let obj = reactive({
+  a: {
+    b: {
+      c: {
+        d: 666,
+      },
+    },
+  },
+})
 
 // 方法
-function changeName() {
-  name.value = 'zhang-san' // 注意: 这样修改name，页面是没有变化的
-  console.log(name.value) // name确实改了，但是name不是响应式的
+function changePrice() {
+  car.price += 10
+  console.log(car.price)
 }
 
-function changeAge() {
-  age.value += 1 // 注意: 这样修改age页面是没有变化的
-  console.log(age.value) // age确实改了，但是age不是响应式的
+function changeFirstSong() {
+  songs[0].name = '逝去日子'
 }
 
-function showTel() {
-  alert(tel)
+function changeObj() {
+  obj.a.b.c.d = 999
 }
 </script>
 <style scoped>
@@ -48,5 +62,9 @@ function showTel() {
 
 button {
   margin: 0 5px;
+}
+
+li {
+  font-size: 20px;
 }
 </style>
