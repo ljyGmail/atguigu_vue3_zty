@@ -1,40 +1,41 @@
 <template>
   <div class="person">
     <h2>汽车信息: 一辆{{ car.brand }}车，价值{{ car.price }}万</h2>
+    <button @click="changeBrand">修改汽车的品牌</button>
     <button @click="changePrice">修改汽车的价格</button>
-    <br />
-    <h2>歌曲列表:</h2>
-    <ul>
-      <li v-for="s in songs" :key="s.id">{{ s.name }}</li>
-    </ul>
-    <button @click="changeFirstSong">修改第一个歌曲的名字</button>
+    <button @click="changeCar">修改汽车</button>
+    <hr />
+    <h2>当前求和为: {{ sum }}</h2>
+    <button @click="changeSum">点我sum+1</button>
   </div>
 </template>
 
 <script lang="ts" setup name="Person">
 import { ref, reactive } from 'vue'
 // 数据
-let car = ref({ brand: '奔驰', price: 100 })
-
-let songs = ref([
-  { id: 'beyond', name: '昔日舞曲' },
-  { id: '周华健', name: '你现在还好吗' },
-  { id: '周杰伦', name: '发如雪' },
-])
-
-let obj = reactive({ x: 999 })
-
-console.log(car)
-console.log(obj)
+let car = reactive({ brand: '奔驰', price: 100 })
+let sum = ref(0)
 
 // 方法
-function changePrice() {
-  car.value.price += 10
-  console.log(car.value.price)
+function changeBrand() {
+  car.brand = '宝马'
 }
 
-function changeFirstSong() {
-  songs.value[0].name = '逝去日子'
+function changePrice() {
+  car.price += 10
+}
+
+function changeCar() {
+  // car = { brand: '奥拓', price: 1 } // 这么写页面不更新
+  // car = reactive({ brand: '奥拓', price: 1 }) // 这么写页面不更新
+
+  // 下面这个写法页面会更新
+  Object.assign(car, { brand: '奥拓', price: 1 })
+}
+
+function changeSum() {
+  sum.value += 1
+  // sum = ref(9)
 }
 </script>
 <style scoped>
