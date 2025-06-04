@@ -561,7 +561,7 @@ export default defineConfig({
 </template>
 
 <script lang="ts" setup name="Person">
-  import { ref, reactive, toRefs, toRef } from 'vue'
+  import { reactive, toRefs, toRef } from 'vue'
 
   // 数据
   let person = reactive({ name: '张三', age: 18, gender: '男' })
@@ -648,7 +648,7 @@ export default defineConfig({
 
 我们在`Vue3`中使用`watch`的时候，通常会遇到以下几种情况:
 
-###            * 情况一
+###              * 情况一
 
 监视`ref`定义的【基本类型】数据: 直接写数据名即可，监视的是其`value`值的改变。
 
@@ -682,7 +682,7 @@ export default defineConfig({
 </script>
 ```
 
-###            * 情况二
+###              * 情况二
 
 监视`ref`定义的【对象类型】数据: 直接写数据名，监视的是对象的【地址值】，若想监视对象内部的数据，要手动开启深度监视。
 
@@ -739,7 +739,7 @@ export default defineConfig({
 </script>
 ```
 
-###            *  情况三
+###              *  情况三
 
 监视`reactive`定义的【对象类型】数据，且默认开启了深度监视。
 
@@ -801,7 +801,7 @@ export default defineConfig({
 </script>
 ```
 
-###            * 情况四
+###              * 情况四
 
 监视`ref`或`reactive`定义的【对象类型】数据中的**某个属性**，注意点如下:
 
@@ -872,7 +872,7 @@ export default defineConfig({
 </script>
 ```
 
-###            * 情况五
+###              * 情况五
 
 监视上述的多个数据
 
@@ -2299,7 +2299,7 @@ function sendToy() {
 2. 原理如下:
 
    | 属性      | 说明                                                     |
-                                    | --------- | -------------------------------------------------------- |
+                                          | --------- | -------------------------------------------------------- |
    | `$refs`   | 值为对象，包含所有被`ref`属性标识的`DOM`元素或组件实例。 |
    | `$parent` | 值为对象，当前组件的父组件实例对象。                     |
 
