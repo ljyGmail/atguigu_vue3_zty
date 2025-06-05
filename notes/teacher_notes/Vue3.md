@@ -594,7 +594,6 @@ export default defineConfig({
 <img src="images/computed.gif" style="zoom:20%;" />  
 
 ```vue
-
 <template>
   <div class="person">
     姓: <input type="text" v-model="firstName"> <br>
@@ -614,7 +613,6 @@ export default defineConfig({
   /* let fullName = computed(()=>{
     return firstName.value + '-' + lastName.value
   }) */
-
 
   // 计算属性——既读取又修改
   let fullName = computed({
