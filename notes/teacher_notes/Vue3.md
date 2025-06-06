@@ -1033,9 +1033,7 @@ export default defineConfig({
     console.log((t1 as HTMLElement).innerText)
     console.log((<HTMLElement>t1).innerText)
     console.log(t1?.innerText)
-
     /************************************/
-
     // 通过ref获取元素
     console.log(title1.value)
     console.log(title2.value)
@@ -1064,7 +1062,6 @@ export default defineConfig({
     console.log(ren.value.age)
   }
 </script>
-
 
 <!-- 子组件Person.vue中要使用defineExpose暴露内容 -->
 <script lang="ts" setup name="Person">
