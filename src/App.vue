@@ -1,5 +1,5 @@
 <template>
-  <h2 class="title">Vue路由测试</h2>
+  <Header />
   <!-- 导航区 -->
   <div class="navigate">
     <RouterLink to="/home" active-class="active">首页</RouterLink>
@@ -14,22 +14,11 @@
 
 <script lang="ts" setup name="App">
 import { RouterView, RouterLink } from 'vue-router'
+import Header from './components/Header.vue'
 </script>
 
 <style scoped>
 /* App */
-.title {
-  text-align: center;
-  word-spacing: 5px;
-  margin: 30px 0;
-  height: 70px;
-  line-height: 70px;
-  background-image: linear-gradient(45deg, gray, white);
-  border-radius: 10px;
-  box-shadow: 0 0 2px;
-  font-size: 30px;
-}
-
 .navigate {
   display: flex;
   justify-content: space-around;
