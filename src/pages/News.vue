@@ -3,7 +3,25 @@
     <!-- 导航区 -->
     <ul>
       <li v-for="news in newsList" :key="news.id">
-        <RouterLink to="/news/detail">{{ news.title }}</RouterLink>
+        <!-- 第一种写法 -->
+        <!--
+        <RouterLink :to="`/news/detail?id=${news.id}&title=${news.title}&content=${news.content}`"
+          >{{ news.title }}
+        </RouterLink>
+        -->
+        <!-- 第二种写法 -->
+        <RouterLink
+          :to="{
+            name: 'xiang',
+            // path: '/news/detail',
+            query: {
+              id: news.id,
+              title: news.title,
+              content: news.content,
+            },
+          }"
+          >{{ news.title }}
+        </RouterLink>
       </li>
     </ul>
     <!-- 展示区 -->
@@ -36,8 +54,12 @@ const newsList = reactive([
 
 .news ul {
   margin-top: 30px;
-  list-style: none;
+  /* list-style: none; */
   padding-left: 10px;
+}
+
+.news li::marker {
+  color: #64967e;
 }
 
 .news li > a {
