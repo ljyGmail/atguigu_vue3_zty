@@ -13,7 +13,7 @@
         <RouterLink
           :to="{
             name: 'xiang', // 这里只能用路由的名字，不能用path
-            params: {
+            query: {
               id: news.id,
               title: news.title,
               content: news.content,
