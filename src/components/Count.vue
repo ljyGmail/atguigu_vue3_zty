@@ -1,7 +1,7 @@
 <template>
   <div class="count">
-    <h2>当前求和为: {{ sum }}</h2>
-    <h3>欢迎来到: {{ school }}，坐落于: {{ address }}</h3>
+    <h2>当前求和为: {{ sum }}，放大10倍后: {{ bigSum }}</h2>
+    <h3>欢迎来到: {{ school }}，坐落于: {{ address }}，大写: {{ upperSchool }}</h3>
     <select v-model.number="n">
       <option value="1">1</option>
       <option value="2">2</option>
@@ -21,7 +21,7 @@ import { storeToRefs } from 'pinia'
 const countStore = useCountStore()
 
 // storeToRefs只用关注store中的数据，不会对方法进行ref包裹
-const { sum, school, address } = storeToRefs(countStore)
+const { sum, school, address, bigSum, upperSchool } = storeToRefs(countStore)
 // console.log('@@@@@', storeToRefs(countStore))
 // console.log('!!!!!', toRefs(countStore)) // toRefs这种方式代价太大
 
