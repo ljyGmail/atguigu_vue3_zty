@@ -9,8 +9,8 @@
 				<!-- 导航区 -->
 				<router-link active-class="active" class="list-group-item" to="/props">1. props</router-link>
 				<router-link active-class="active" class="list-group-item" to="/event">2. 自定义事件</router-link>
-        <!--
 				<router-link active-class="active" class="list-group-item" to="/mitt">3. mitt</router-link>
+        <!--
 				<router-link active-class="active" class="list-group-item" to="/model">4. v-model</router-link>
 				<router-link active-class="active" class="list-group-item" to="/attrs">5. $attrs</router-link>
 				<router-link active-class="active" class="list-group-item" to="/ref-parent">6. <span class="small">$refs、$parent</span></router-link>
