@@ -1,6 +1,8 @@
 <template>
   <div class="father">
     <h3>父组件</h3>
+    <h4>{{ username }}</h4>
+    <h4>{{ password }}</h4>
     <!-- v-model用在html标签上 -->
     <!-- <input type="text" v-model="username" /> -->
     <!--
@@ -11,8 +13,11 @@
     />
     -->
     <!-- v-model用在组件标签上 -->
-    <AtguiguInput v-model="username" />
+    <!-- <AtguiguInput v-model="username" /> -->
     <!-- <AtguiguInput :modelValue="username" @update:modelValue="username = $event" /> -->
+
+    <!-- 修改modelValue -->
+    <AtguiguInput v-model:ming="username" v-model:mima="password" />
   </div>
 </template>
 
@@ -22,6 +27,7 @@ import AtguiguInput from './AtguiguInput.vue'
 
 // 数据
 let username = ref('zhangsan')
+let password = ref('123456')
 </script>
 
 <style scoped>
