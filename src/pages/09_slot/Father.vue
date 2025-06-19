@@ -2,49 +2,31 @@
   <div class="father">
     <h3>父组件</h3>
     <div class="content">
-      <Category>
-        <template v-slot:s2>
+      <Game>
+        <template v-slot="params">
           <ul>
-            <li v-for="g in games" :key="g.id">{{ g.name }}</li>
+            <li v-for="g in params.games" :key="g.id">{{ g.name }}</li>
           </ul>
         </template>
-        <template v-slot:s1>
-          <h2>热门游戏列表</h2>
+      </Game>
+      <Game>
+        <template #default="{ games }">
+          <ol>
+            <li v-for="g in games" :key="g.id">{{ g.name }}</li>
+          </ol>
         </template>
-      </Category>
-      <Category>
-        <template #s2>
-          <img :src="imageUrl" alt="我的自拍" />
+      </Game>
+      <Game>
+        <template v-slot:default="{ games }">
+          <h3 v-for="g in games" :key="g.id">{{ g.name }}</h3>
         </template>
-        <template #s1>
-          <h2>今日我的自拍</h2>
-        </template>
-      </Category>
-      <Category>
-        <template #s2>
-          <video :src="videoUrl" controls />
-        </template>
-        <template #s1>
-          <h2>今日影视推荐</h2>
-        </template>
-      </Category>
+      </Game>
     </div>
   </div>
 </template>
 
 <script setup lang="ts" name="Father">
-import Category from './Category.vue'
-import { ref, reactive } from 'vue'
-
-let games = reactive([
-  { id: 'vue01', name: '英雄联盟' },
-  { id: 'vue02', name: '王者荣耀' },
-  { id: 'vue03', name: '红色警戒' },
-  { id: 'vue04', name: '斗罗大陆' },
-])
-
-let imageUrl = ref('/images/myself.jpg')
-let videoUrl = ref('/images/movie.mp4')
+import Game from './Game.vue'
 </script>
 
 <style scoped>
@@ -62,12 +44,5 @@ let videoUrl = ref('/images/movie.mp4')
 img,
 video {
   width: 100%;
-}
-
-h2 {
-  background-color: orange;
-  text-align: center;
-  font-size: 20px;
-  font-weight: 800;
 }
 </style>
