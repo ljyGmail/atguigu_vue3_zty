@@ -6,8 +6,8 @@ import Model from '@/pages/04_v-model/Father.vue'
 import AttrsListeners from '@/pages/05_$attrs/Father.vue'
 import RefChildrenParent from '@/pages/06_$refs-$parent/Father.vue'
 import ProvideInject from '@/pages/07_provide-inject/Father.vue'
-// import Pinia from '@/pages/08_pinia/Father.vue'
-// import Slot from '@/pages/09_slot/Father.vue'
+import Pinia from '@/pages/08_pinia/Father.vue'
+import Slot from '@/pages/09_slot/Father.vue'
 
 export default createRouter({
   history: createWebHistory(),
@@ -40,7 +40,6 @@ export default createRouter({
       path: '/provide-inject',
       component: ProvideInject,
     },
-    /*
     {
       path: '/pinia',
       component: Pinia,
@@ -49,6 +48,5 @@ export default createRouter({
       path: '/slot',
       component: Slot,
     },
-     */
   ],
 })
